@@ -271,6 +271,10 @@ Then run this command:
 
 Logout and log back in again, then visit your.domain/admin/settings to start customizing your instance.
 
+## Coming Soon: Cron job to auto-renew Let's Encrypt SSL certificates
+
+Check back later for more info on this! 👍
+
 ## Coming Soon: Converting your instance to Single User
 
 Check back later for more info on this! 👍
