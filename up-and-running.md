@@ -262,7 +262,7 @@ We just created a new cron job that will execute the letsencrypt-auto renew comm
 
 The output produced by the command will be piped to a log file located at /home/mastodon/letsencrypt.log
 
-## Managing your instance
+## Next Steps: Managing your instance
 
 Information on managing your instance can be found [here](https://github.com/tootsuite/mastodon/blob/master/docs/Running-Mastodon/Administration-guide.md) on the Mastodon repository itself. Before you start editing site settings etc. however, you need to make yourself an admin. 
 
@@ -278,9 +278,9 @@ Then run this command:
 
 Logout and log back in again, then visit your.domain/admin/settings to start customizing your instance.
 
-## Coming Soon: Converting your instance to Single User
+### Other guides
 
-Check back later for more info on this! 👍
+- [Converting your instance to single user mode](https://github.com/ummjackson/mastodon-guide/blob/master/single-user-mode.md)
 
 ## Troubleshooting
 
