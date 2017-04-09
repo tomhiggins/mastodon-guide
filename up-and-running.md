@@ -44,7 +44,7 @@ Update the package database with the Docker packages from the newly added repo:
 
 Tell the system to install from the Docker repo instead of the default Ubuntu 16.04 repo:
 
-`apt-cache policy docker-engine`
+`sudo apt-cache policy docker-engine`
 
 Finally, install Docker:
 
@@ -171,18 +171,6 @@ Now let's configure nginx:
 Copy the nginx config from [here](https://github.com/tootsuite/mastodon/blob/master/docs/Running-Mastodon/Production-guide.md) and paste it into the `nano` editor window. 
 
 Find all intances of `example.com` and replace with the domain name you have pointed to your machine, *including* the `ssl_certificate` lines. These are the only changes you should make.
-
-After you've tweaked the file, add this block to the bottom of the file - also adjusting the instances of `example.com`:
-
-```
-server {
-  listen 80;
-  server_name example.com;
-  rewrite ^ https://$server_name$request_uri? permanent;
-}
-```
-
-This will ensure all non-HTTPs traffic is redirected to HTTPS. 
 
 Once done, press ^X, type `Y` and hit Enter to save your changes.
 
