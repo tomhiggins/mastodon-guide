@@ -126,10 +126,6 @@ As we've changed the config, we'll need to build again:
 
 `docker-compose build`
 
-Once completed, run the container:
-
-`docker-compose up -d`
-
 Now it's time to run migrations: 
 
 `docker-compose run --rm web rails db:migrate`
@@ -137,6 +133,10 @@ Now it's time to run migrations:
 We can pre-compile assets too to make things snappier:
 
 `docker-compose run --rm web rails assets:precompile`
+
+Once completed, run the container:
+
+`docker-compose up -d`
 
 ## Setup nginx in front of Docker
 
