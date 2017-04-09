@@ -196,14 +196,13 @@ Now let's stop Docker and rebuild everything to be safe. Run these commands **on
 
 ```
 docker-compose down
-docker-compose stop
 docker-compose build
 docker-compose run --rm web rails assets:precompile
 docker-compose run --rm web rails db:migrate
 docker-compose up -d
 ```
 
-Lastly, let's restart nginx:
+Lastly, let's bring nginx back online:
 
 `sudo systemctl restart nginx.service`
 
@@ -292,13 +291,14 @@ A good first step is to run this block of commands **one line at a time** from y
 
 ```
 docker-compose down
-docker-compose stop
 docker-compose build
 docker-compose run --rm web rails assets:precompile
 docker-compose run --rm web rails db:migrate
 docker-compose up -d
 sudo systemctl restart nginx.service
 ```
+
+**Note:** `docker-compose down` will remove all containers, meaning it will clear out the database. If you'd like to avoid potential data loss, substitute it with `docker-compose stop`. This is less of an issue for a fresh install, but you'll want to switch to the latter once you have registered users.
 
 ### Email confirmation isn't working
 
