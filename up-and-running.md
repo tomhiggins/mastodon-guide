@@ -8,7 +8,7 @@ This guide assumes you have:
 
 These instructions have been tested and verified with the standard Ubuntu 16.04 x64 image on both a $10/mo [Vultr](https://vultr.com) instance and a $20/mo [DigitalOcean](https://digitalocean.com) instance. 2GB memory is recommended. You'll also find things faster if you can select the region nearest you geographically. 
 
-## Step 1. Create non-root user with root privileges
+## Step 1. Create a `mastodon` user with root privileges
 
 First login via SSH as the root user, then add a new user:
 
