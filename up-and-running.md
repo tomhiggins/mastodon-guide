@@ -222,6 +222,7 @@ Next up, we'll create a file with the commands we'd like to schedule:
 Copy/paste in everything below:
 
 ```
+cd /home/mastodon/mastodon
 docker-compose run --rm web rake mastodon:media:clear
 docker-compose run --rm web rake mastodon:push:refresh
 docker-compose run --rm web rake mastodon:push:clear
