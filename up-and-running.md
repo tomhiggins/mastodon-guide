@@ -138,10 +138,6 @@ We can pre-compile assets too to make things snappier:
 
 `docker-compose run --rm web rails assets:precompile`
 
-One final build as we pre-compiled:
-
-`docker-compose build`
-
 ## Setup nginx in front of Docker
 
 First, let's install nginx:
@@ -202,9 +198,8 @@ Now let's stop Docker and rebuild everything to be safe. Run these commands **on
 docker-compose down
 docker-compose stop
 docker-compose build
-docker-compose run --rm web rails db:migrate
 docker-compose run --rm web rails assets:precompile
-docker-compose build
+docker-compose run --rm web rails db:migrate
 docker-compose up -d
 ```
 
@@ -279,9 +274,8 @@ A good first step is to run this block of commands **one line at a time** from y
 docker-compose down
 docker-compose stop
 docker-compose build
-docker-compose run --rm web rails db:migrate
 docker-compose run --rm web rails assets:precompile
-docker-compose build
+docker-compose run --rm web rails db:migrate
 docker-compose up -d
 sudo systemctl restart nginx.service
 ```
