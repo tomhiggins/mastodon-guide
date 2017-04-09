@@ -4,7 +4,8 @@ Guided tutorials for setting up, running and managing your own [Mastodon](https:
 
 ## ⌨️ Guides
 
-- [Running a Mastodon instance on Ubuntu 16.04 with Docker & nginx](https://github.com/ummjackson/mastodon-guide/blob/master/up-and-running.md)
+- **Read this first:** [Running a Mastodon instance on Ubuntu 16.04 with Docker & nginx](https://github.com/ummjackson/mastodon-guide/blob/master/up-and-running.md)
+- [Converting your instance to single user mode](https://github.com/ummjackson/mastodon-guide/blob/master/single-user-mode.md)
 
 ## ✅ Official documentation
 
