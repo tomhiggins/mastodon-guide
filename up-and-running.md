@@ -209,9 +209,11 @@ Lastly, let's restart nginx:
 
 You should be able to visit your domain now, be auto-directed to the HTTPS protocol and see your running Mastodon instance!
 
-## Setup cron jobs to keep feeds working
+## Setup cron jobs
 
-To keep everything working, we need to set up some cron jobs to regularly tidy things up and refresh feeds. First, make sure you're in the home directory of your `mastodon` user:
+### Automate Mastodon tasks
+
+To keep Mastodon running smoothly, we need to set up some cron jobs to regularly tidy things up in the background. First, make sure you're in the home directory of your `mastodon` user:
 
 `cd /home/mastodon`
 
@@ -239,6 +241,27 @@ If you're prompted to select a text editor, just hit `2` then Enter to select `n
 
 Once again, press ^X, type `Y` and hit Enter to save your changes. This has just told cron to run the specified commands at 12 midnight each day. You can adjust the `/home/mastodon/mastodon_cron` file to change what gets run daily, or change the scheduling by editing the crontab file and saving it again.
 
+### Auto-renew Let's Encrypt SSL certificate
+
+Let's Encrypt SSL certificates expire every 90 days, so it's important that we schedule a job to automatically renew this periodically in the background - otherwise our instance will eventually lose SSL.
+
+Let's fire up crontab again:
+ 
+ `sudo crontab -e`
+ 
+Press the down arrow until you reach the end of the file, you should see your mastodon_cron job that we setup previously. Below that, copy/paste the following:
+
+```
+0 1 * * 1 /usr/bin/letsencrypt renew >> /home/mastodon/letsencrypt.log
+5 1 * * 1 /bin/systemctl reload nginx
+```
+
+Once done, press ^X, type Y and hit Enter to save your changes. 
+
+We just created a new cron job that will execute the letsencrypt-auto renew command every Monday at 1:00am, and reload Nginx at 1:05am (so the renewed certificate will be used). If the certificate is less than 60 days old, letsencrypt will not try to renew it.
+
+The output produced by the command will be piped to a log file located at /home/mastodon/letsencrypt.log
+
 ## Managing your instance
 
 Information on managing your instance can be found [here](https://github.com/tootsuite/mastodon/blob/master/docs/Running-Mastodon/Administration-guide.md) on the Mastodon repository itself. Before you start editing site settings etc. however, you need to make yourself an admin. 
@@ -254,10 +277,6 @@ Then run this command:
 `docker-compose run --rm web rails mastodon:make_admin USERNAME=yourusername`
 
 Logout and log back in again, then visit your.domain/admin/settings to start customizing your instance.
-
-## Coming Soon: Cron job to auto-renew Let's Encrypt SSL certificates
-
-Check back later for more info on this! 👍
 
 ## Coming Soon: Converting your instance to Single User
 
