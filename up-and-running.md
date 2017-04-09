@@ -182,7 +182,7 @@ Now we can install Let's Encrypt:
 
 Once installed, we can generate the SSL certificates. Run the following command replacing `example.com` with the domain you have pointed at your machine:
 
-`letsencrypt certonly --standalone -d example.com`
+`sudo letsencrypt certonly --standalone -d example.com`
 
 Follow the prompts to complete the process. 
 
