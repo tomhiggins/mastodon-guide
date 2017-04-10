@@ -307,3 +307,11 @@ Some mail hosts will blacklist or bounce emails coming from newly created email 
 If you are not receiving emails and need to confirm a user account, go to the "Logs" tab inside the Mailgun UI and click your domain. You should see a green row with the verification email that it attempted to send. Click the cog icon to the left of the row and then "View Message", from here you can manually copy/paste the confirmation URL into your browser to get around this problem.
 
 After your instance is live for ~24 hours, you shouldn't be having this issue any longer. 
+
+### Confirming Users Manually
+
+This will confirm a user manually, in case they don't have access to their confirmation email for whatever reason or if you want to hand confirm users. 
+
+docker-compose run web rails mastodon:confirm_email USER_EMAIL=username@useremail.dom
+
+
